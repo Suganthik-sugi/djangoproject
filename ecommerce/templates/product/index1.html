@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{%static 'css/style.css' %}"></head>
+<body>
+ 
+  {%if emp_data%}
+ <table></table>
+ {%for employee in emp_list%}
+ 
+ <tr><td>{{employee.empName}}</td>
+  <td>{{employee.empsalary}}</td>
+    <td>{{employee.empAddress}}</td>
+    </tr>
+ {%endfor%}
+</table>
+ {%endif%} 
+ <!-- <img src="{%static 'images/1.png' %}" alt="cup"> -->
+ <div style="margin:80px">
+  <h1 align="center">Contact Us</h1>
+  <hr>
+  <h4>Contact us directly if you have any queries. We will get in touch with you shortly.</h4>
+  <hr>
+  <br></div>
+  <form method="post" class="post-form" action="">
+      {% csrf_token %}
+      <table>
+          <tr>
+              <th>
+                  <label for="name">Name:</label>
+              </th>
+              <td>
+                  <input type="text" id="name" name="name" required>
+              </td>
+          </tr>
+        <!--   <tr>
+              <th>
+                  <label for="email">E-mail:</label>
+              </th>
+              <td>
+                  <input type="email" id="email" name="email" required>
+              </td>
+          </tr>
+          <tr>
+              <th>
+                  <label for="phone">Phone:</label>
+              </th>
+              <td>
+                  <input type="tel" id="phone" name="phone" required>
+              </td>
+          </tr>
+          <tr>
+              <th>
+                  Contact me by:
+              </th>
+              <td>
+                  <label for="email">E-Mail</label>
+                  <input type="radio" id="email" name=contact value="email">
+
+                  <label for="phone">Phone</label>
+                  <input type="radio" id="phone" name=contact value="phone">
+              </td>
+          </tr>
+          <tr>
+              <th>
+                  <label for="queries">How can we help you?:</label>
+              </th>
+              <td>
+                  <select name="queries" id="queries">
+                      <option value="certification">Certification</option>
+                      <option value="interview">Interview</option>
+                      <option value="material">Material</option>
+                      <option value="access_duration">Access and Duration</option>
+                      <option value="other">Others</option>
+                  </select>
+              </td>
+          </tr>
+          <tr>
+              <th>
+                  <label for="message">Message:</label>
+              </th>
+              <td>
+                  <textarea id="message" name="message" rows=10 cols=40 maxlength=3000 required></textarea>
+              </td>
+          </tr>-->
+      </table>
+      <button type="submit">Submit</button>
+  </form> 
+
+</body>
+</html>
