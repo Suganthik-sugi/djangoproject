@@ -4,7 +4,8 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
 class UniversityForm(forms.Form):
-  name=forms.CharField(max_length=105, widget=forms.TextInput(attrs={'autofocus': True}))
+  name=forms.CharField(max_length=105, widget=forms.TextInput(attrs={'autofocus': True}),)
+  name=forms.CharField(max_length=105, widget=forms.TextInput(attrs={'autofocus': True}),blank=True)
   # (label='Product name')
   
   # date_of_birth=forms.DateField()
