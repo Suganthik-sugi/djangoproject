@@ -25,6 +25,7 @@ def home(request):
     context={'form':UniversityForm}
     return render(request,'product/index2.html',context)
 
+
 def forminsert(request):
       return render(request,'product/index.html')  
   
