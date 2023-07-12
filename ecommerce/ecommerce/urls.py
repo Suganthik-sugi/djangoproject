@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from product import views as v1
+from django.db import IntegrityError
 
 urlpatterns = [
+    path('',v1.home,name="index"),
     path('admin/', admin.site.urls),
     path('home/',v1.home,name='home'),
     path('result/',v1.result, name="result"),
@@ -27,3 +29,4 @@ urlpatterns = [
     path('delete/<int:id>',v1.delete,name='delete'),
     path('forminsert',v1.forminsert,name='forminsert')
 ]
+handlerIntegrityError = 'v1.IntegrityError'

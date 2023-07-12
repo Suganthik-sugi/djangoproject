@@ -9,6 +9,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from datetime import datetime
 from django.contrib import messages
+from django.db import IntegrityError
 
 # Create your views here.
 
@@ -20,6 +21,7 @@ def home(request):
         now = datetime.now()
         cdate = now.strftime('%d-%m-%Y')
         contact_data = product(productname=name, datecurrent=cdate)
+    
         contact_data.save()
         return render(request, 'product/success.html')
     context={'form':UniversityForm}
@@ -58,3 +60,6 @@ def edit(request,id):
      employee = product.objects.get(id=id) 
      pro_update={'product':employee,'form':UniversityForm1} 
      return render(request, 'product/update.html',context=pro_update)
+
+def IntegrityError(request,exception):
+    return render(request,'product/error.html')
