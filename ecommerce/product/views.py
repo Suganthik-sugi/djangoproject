@@ -9,7 +9,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from datetime import datetime
 from django.contrib import messages
-from django.db import IntegrityError
+from django.db.utils import IntegrityError
 
 # Create your views here.
 
@@ -17,11 +17,11 @@ from django.db import IntegrityError
 def home(request):
 
     if request.method == 'POST':
+
         name = request.POST.get('name')
         now = datetime.now()
         cdate = now.strftime('%d-%m-%Y')
         contact_data = product(productname=name, datecurrent=cdate)
-    
         contact_data.save()
         return render(request, 'product/success.html')
     context={'form':UniversityForm}
