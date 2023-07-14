@@ -15,10 +15,6 @@ class UniversityForm1(forms.ModelForm):
   class Meta:
     model=product
     fields=['productname']
-  # name=forms.CharField(label='Product name')
-  # date_of_birth=forms.DateField()
-  # eid=forms.CharField(label='Product id:')
     eid=forms.CharField(label='Product id:')
     ename=forms.CharField(label='Product Name:')
-
  

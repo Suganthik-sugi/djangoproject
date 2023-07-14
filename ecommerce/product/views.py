@@ -63,6 +63,7 @@ def update(request,id):
         newproduct = product.objects.get(id=id)
         name = request.POST.get('ename')
         newproduct.productname=name
+        # newproduct = product(productname=name)
         newproduct.save()
         return redirect('result')
     
