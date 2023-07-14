@@ -22,9 +22,9 @@
         <h4 class="alert alert-info">Update Product Information</h4>
       <form method="POST" class="post-form" action="/update/{{product.id}}">  
         {% csrf_token %} 
-        <!-- {{ form|crispy }}  -->
+        {{ form|crispy }} 
         
-      <table>  {{form.as_table}}</table>
+      <!-- <table>  {{form.as_table}}</table> -->
         <button type="submit" class="btn btn-success">Update</button> 
 
 </form>  
