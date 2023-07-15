@@ -14,7 +14,7 @@ class UniversityForm(forms.Form):
 class UniversityForm1(forms.ModelForm):
   class Meta:
     model=product
-    fields=['productname']
+    fields=['id','productname']
     eid=forms.CharField(label='Product id:')
     ename=forms.CharField(label='Product Name:')
  

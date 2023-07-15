@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from django.http import HttpResponse
 from product.models import product
 from .forms import UniversityForm
@@ -63,11 +63,12 @@ def update(request,id):
         newproduct = product.objects.get(id=id)
         name = request.POST.get('ename')
         newproduct.productname=name
-        # newproduct = product(productname=name)
         newproduct.save()
         return redirect('result')
     
-    return render(request, 'product/update.html', {'product': newproduct}) 
+    return render(request, 'product/update.html', {'product': newproduct})
+
+ 
 
 def delete(request,id):
     product_detail = product.objects.get(id=id)
@@ -91,3 +92,18 @@ def edit(request, id):
 
 # def IntegrityError(request,exception):
 #     return render(request,'product/error.html')
+def edit(request, id):
+    # Retrieve the product object with the given id or return a 404 error if not found
+    productn = get_object_or_404(product, id=id)
+    
+    if request.method == 'POST':
+        # If the form is submitted
+        form = UniversityForm1(request.POST, instance=productn)
+        if form.is_valid():
+            form.save()
+            return redirect('product_detail', id=product.id)  # Redirect to the product detail page
+    else:
+        # If the form is requested for the first time
+        form = UniversityForm1(instance=product)
+    
+    return render(request, 'product/update.html', {'form': form, 'product': product})
