@@ -75,6 +75,15 @@ def delete(request,id):
     product_detail.delete()
     messages.error(request,"Delete Successfully completed")
     return redirect('result')
+
+
+def delete(request):
+    if request.method == 'POST':
+        selected_ids = request.POST.getlist('selected_ids')
+        product.objects.filter(id__in=selected_ids).delete()
+        messages.success(request, 'Selected products deleted successfully.')
+    return redirect('result')
+
     # mydata = product.objects.all()
     # pro_dict={'pro_list':mydata}
     # return render(request,'product/template.html',context=pro_dict)

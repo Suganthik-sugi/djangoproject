@@ -45,7 +45,9 @@
 {%if pro_list %}
 {% for product in pro_list%}
 <tr>
-  <td><input type="checkbox" name="id" value="{{product.id}}"></td>
+  <td><input type="checkbox" name="selected_ids" value="{{ product.id }}">
+
+  </td>
 <td>{{product.id}}</td> 
 <td>{{product.productname}}</td>
 
