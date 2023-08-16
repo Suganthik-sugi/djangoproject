@@ -1,0 +1,32 @@
+<!-- user_panel_form.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* body{
+            background-image: url("{% static 'images/register.png' %}");
+            background-color: aqua;
+        } */
+        
+        body {
+            background-image: url("{% static 'firstapp/images/register.png' %}");
+        }
+        /* Other CSS styles for your page can be added here */
+    
+    </style>
+  <title> Vels World</title>
+  <!-- {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'attach/static/styles.css' %}"> {% endcomment %} -->
+</head>
+<body>
+  <div style="background-color: green; width:50; height:50;"><h1>User Form</h1></div>
+  <!-- <div style="background-image: url('{% static 'images/bc.jpeg' %}')"> -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+      </form>
+  </div>
+  
+</body>
+</html>

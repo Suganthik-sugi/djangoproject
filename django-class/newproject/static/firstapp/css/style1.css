@@ -1,0 +1,5 @@
+body {
+    background-image: url("{% static 'images/register.png' %}");
+    background-color: bisque;
+}
+    

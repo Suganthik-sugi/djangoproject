@@ -1,6 +1,5 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from django.http import HttpResponse
-from product.models import product
 from .forms import UniversityForm
 from .forms import UniversityForm1
 from django import forms  
@@ -77,12 +76,12 @@ def delete(request,id):
     return redirect('result')
 
 
-def delete(request):
-    if request.method == 'POST':
-        selected_ids = request.POST.getlist('selected_ids')
-        product.objects.filter(id__in=selected_ids).delete()
-        messages.success(request, 'Selected products deleted successfully.')
-    return redirect('result')
+# def delete(request):
+#     if request.method == 'POST':
+#         selected_ids = request.POST.getlist('selected_ids')
+#         product.objects.filter(id__in=selected_ids).delete()
+#         messages.success(request, 'Selected products deleted successfully.')
+#     return redirect('result')
 
     # mydata = product.objects.all()
     # pro_dict={'pro_list':mydata}

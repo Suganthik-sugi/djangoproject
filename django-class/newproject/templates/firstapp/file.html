@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Add this to your CSS file or <style> block in the template */
+        .form-field {
+            margin-bottom: 20px;
+        }
+        
+        .errorlist {
+            color: red; /* Set the color of the error messages to red */
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .errorlist li {
+            margin-left: 20px;
+        }
+        </style>
+</head>
+<body>
+   
+    <form method="POST" class="post-form" enctype="multipart/form-data">
+
+        {%csrf_token%}
+        {{form.as_p}}
+    
+        <button type="submit" class="save btn btn-default">SAVE</button>
+    </form>
+        
+</body>
+</html>
